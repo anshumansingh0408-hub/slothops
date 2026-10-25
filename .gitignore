@@ -9,3 +9,5 @@ yarn-error.log*
 pnpm-debug.log*
 *.pyc
 __pycache__/
+.vite/
+*.log
