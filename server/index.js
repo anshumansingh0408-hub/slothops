@@ -159,7 +159,7 @@ app.get('*', (req, res) => {
   });
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`🦥 SlothOps Agent Server listening on port ${PORT}`);
   console.log(`   Open-Weight AI: ${process.env.GEMMA_MODEL_NAME || 'google/gemma-2-9b-it'}`);
   console.log(`   Tabular Core: Prior Labs TabPFN-3.5`);
