@@ -7,7 +7,8 @@
 [![AI Core: Gemma 2](https://img.shields.io/badge/Open--Weight%20AI-Google%20Gemma%202-indigo.svg)](https://ai.google.dev/gemma)
 [![Tabular AI: TabPFN-3.5](https://img.shields.io/badge/Tabular%20Foundation-Prior%20Labs%20TabPFN--3.5-amber.svg)](https://priorlabs.ai)
 [![Orchestrator: Mastra](https://img.shields.io/badge/Framework-Mastra%20DAG-purple.svg)](https://mastra.ai)
-[![Deploy: Render](https://img.shields.io/badge/Deploy-Render%20Web%20Service-blue.svg)](./render.yaml)
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/anshumansingh0408-hub/slothops)
 
 ---
 
