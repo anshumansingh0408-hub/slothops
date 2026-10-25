@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Volume2, Play, Pause, RotateCcw, Sparkles, Moon, Headphones, CloudRain, Wind, Waves, Coffee } from 'lucide-react';
+import { Play, Pause, RotateCcw, Moon, Headphones, CloudRain, Wind, Waves, Coffee } from 'lucide-react';
 
 export function AudioBriefingPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -20,9 +20,9 @@ export function AudioBriefingPlayer() {
   const ambientOscillatorRef = useRef(null);
 
   const soundscapes = [
-    { id: 'canopy-rain', name: 'Rain on Canopy', icon: CloudRain, color: 'emerald' },
-    { id: 'sleepy-breeze', name: 'Gentle Breeze', icon: Wind, color: 'indigo' },
-    { id: 'night-waves', name: 'Midnight Waves', icon: Waves, color: 'cyan' },
+    { id: 'canopy-rain', name: 'Rain on Canopy', icon: CloudRain },
+    { id: 'sleepy-breeze', name: 'Gentle Breeze', icon: Wind },
+    { id: 'night-waves', name: 'Midnight Waves', icon: Waves },
   ];
 
   const togglePlayAudio = () => {
@@ -63,7 +63,6 @@ export function AudioBriefingPlayer() {
         const ctx = new AudioContext();
         audioContextRef.current = ctx;
 
-        // White noise buffer for rain/breeze simulation
         const bufferSize = ctx.sampleRate * 2;
         const noiseBuffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
         const output = noiseBuffer.getChannelData(0);
@@ -75,13 +74,12 @@ export function AudioBriefingPlayer() {
         whiteNoise.buffer = noiseBuffer;
         whiteNoise.loop = true;
 
-        // Bandpass filter to create calming rain/canopy sounds
         const filter = ctx.createBiquadFilter();
         filter.type = 'lowpass';
         filter.frequency.setValueAtTime(450, ctx.currentTime);
 
         const gainNode = ctx.createGain();
-        gainNode.gain.setValueAtTime(0.08, ctx.currentTime);
+        gainNode.gain.setValueAtTime(0.06, ctx.currentTime);
 
         whiteNoise.connect(filter);
         filter.connect(gainNode);
@@ -112,7 +110,7 @@ export function AudioBriefingPlayer() {
         <div>
           <div className="flex items-center gap-2" style={{ marginBottom: '0.35rem' }}>
             <h2 style={{ fontSize: '1.75rem' }}>Sloth Audio & Bedtime Lounge</h2>
-            <span className="badge badge-indigo">ElevenLabs Audio API / Ambient TTS</span>
+            <span className="badge badge-neutral">ElevenLabs Audio API / Ambient TTS</span>
           </div>
           <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
             Lie back, close your eyes, and listen. Hands-free audio summaries and soothing soundscapes for zero screen glare.
@@ -122,18 +120,18 @@ export function AudioBriefingPlayer() {
         <div className="flex items-center gap-2">
           <button
             onClick={() => setSelectedMood('calm-ambient')}
-            className={`badge ${selectedMood === 'calm-ambient' ? 'badge-emerald' : 'badge-subtle'}`}
-            style={{ cursor: 'pointer', padding: '0.45rem 0.9rem' }}
+            className={`badge ${selectedMood === 'calm-ambient' ? 'badge-neutral' : 'badge-subtle'}`}
+            style={{ cursor: 'pointer', padding: '0.45rem 0.9rem', background: selectedMood === 'calm-ambient' ? 'rgba(255,255,255,0.12)' : 'transparent' }}
           >
-            <Moon size={14} />
+            <Moon size={13} />
             <span>Bedtime Wind-Down</span>
           </button>
           <button
             onClick={() => setSelectedMood('morning-fresh')}
-            className={`badge ${selectedMood === 'morning-fresh' ? 'badge-amber' : 'badge-subtle'}`}
+            className={`badge ${selectedMood === 'morning-fresh' ? 'badge-bronze' : 'badge-subtle'}`}
             style={{ cursor: 'pointer', padding: '0.45rem 0.9rem' }}
           >
-            <Coffee size={14} />
+            <Coffee size={13} />
             <span>Morning Coffee Digest</span>
           </button>
         </div>
@@ -142,22 +140,21 @@ export function AudioBriefingPlayer() {
       {/* Main Player Visualizer Card */}
       <div className="glass-card" style={{
         padding: '2.5rem',
-        background: 'rgba(8, 11, 18, 0.95)',
+        background: 'rgba(12, 15, 22, 0.95)',
         marginBottom: '2rem',
         textAlign: 'center',
-        border: isPlaying ? '1px solid rgba(16, 185, 129, 0.4)' : '1px solid var(--border-subtle)',
-        boxShadow: isPlaying ? '0 0 35px rgba(16, 185, 129, 0.2)' : 'none'
+        border: '1px solid var(--border-medium)'
       }}>
-        {/* Animated Waveform Simulation */}
+        {/* Animated Titanium Waveform Simulation */}
         <div className="waveform-container" style={{ marginBottom: '1.75rem' }}>
           {[16, 32, 48, 64, 38, 54, 72, 42, 28, 58, 68, 36, 50, 75, 30, 46, 62, 34, 20].map((height, i) => (
             <div
               key={i}
               className="wave-bar"
               style={{
-                height: isPlaying ? `${height}px` : '8px',
-                backgroundColor: isPlaying ? 'var(--accent-emerald)' : 'rgba(255, 255, 255, 0.2)',
-                animation: isPlaying ? `pulseGlow 1.${(i % 5) + 2}s infinite alternate` : 'none'
+                height: isPlaying ? `${height}px` : '7px',
+                backgroundColor: isPlaying ? '#ffffff' : 'rgba(255, 255, 255, 0.2)',
+                animation: isPlaying ? `subtleBreathe 1.${(i % 5) + 2}s infinite alternate` : 'none'
               }}
             />
           ))}
@@ -166,7 +163,7 @@ export function AudioBriefingPlayer() {
         {/* Script Display */}
         <p style={{
           fontSize: '1.15rem',
-          color: '#fff',
+          color: '#f9fafb',
           fontStyle: 'italic',
           maxWidth: '720px',
           margin: '0 auto 2rem',
@@ -180,25 +177,25 @@ export function AudioBriefingPlayer() {
           <button
             onClick={resetNarration}
             className="btn btn-secondary"
-            style={{ borderRadius: '50%', width: '48px', height: '48px', padding: 0 }}
+            style={{ borderRadius: '50%', width: '46px', height: '46px', padding: 0 }}
             title="Reset Narration"
           >
-            <RotateCcw size={18} />
+            <RotateCcw size={17} />
           </button>
 
           <button
             onClick={togglePlayAudio}
             className="btn btn-primary"
-            style={{ borderRadius: 'var(--radius-full)', padding: '0.95rem 2.2rem', fontSize: '1.05rem' }}
+            style={{ borderRadius: 'var(--radius-full)', padding: '0.85rem 2rem', fontSize: '0.975rem' }}
           >
             {isPlaying ? (
               <>
-                <Pause size={20} />
+                <Pause size={18} />
                 <span>Pause Sloth Narration</span>
               </>
             ) : (
               <>
-                <Play size={20} />
+                <Play size={18} />
                 <span>Play Calming Audio</span>
               </>
             )}
@@ -206,10 +203,10 @@ export function AudioBriefingPlayer() {
 
           <button
             onClick={toggleAmbientSound}
-            className={`btn ${isAmbientPlaying ? 'btn-indigo' : 'btn-secondary'}`}
-            style={{ borderRadius: 'var(--radius-full)', padding: '0.95rem 1.6rem', fontSize: '0.9rem' }}
+            className={`btn ${isAmbientPlaying ? 'btn-titanium' : 'btn-secondary'}`}
+            style={{ borderRadius: 'var(--radius-full)', padding: '0.85rem 1.6rem', fontSize: '0.9rem' }}
           >
-            <CloudRain size={18} />
+            <CloudRain size={16} />
             <span>{isAmbientPlaying ? 'Stop Ambient Rain' : 'Play Ambient Rain'}</span>
           </button>
         </div>
@@ -226,17 +223,17 @@ export function AudioBriefingPlayer() {
               <button
                 key={sound.id}
                 onClick={() => setActiveSoundscape(sound.id)}
-                className={`badge badge-${sound.color}`}
-                style={{ cursor: 'pointer', opacity: isSelected ? 1 : 0.6 }}
+                className={`badge badge-neutral`}
+                style={{ cursor: 'pointer', background: isSelected ? 'rgba(255,255,255,0.12)' : 'rgba(255,255,255,0.04)' }}
               >
-                <SoundIcon size={13} />
+                <SoundIcon size={12} />
                 <span>{sound.name}</span>
               </button>
             );
           })}
         </div>
 
-        <div className="badge badge-emerald">
+        <div className="badge badge-neutral">
           <Headphones size={13} />
           <span>0% Screen Glare • 100% Sloth Approved</span>
         </div>

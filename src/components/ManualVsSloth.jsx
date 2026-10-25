@@ -1,5 +1,5 @@
 import React from 'react';
-import { XCircle, CheckCircle2, AlertTriangle, ShieldCheck, DollarSign, Clock } from 'lucide-react';
+import { XCircle, CheckCircle2 } from 'lucide-react';
 
 export function ManualVsSloth() {
   const comparisons = [
@@ -33,32 +33,32 @@ export function ManualVsSloth() {
   return (
     <section style={{ marginBottom: '3.5rem' }}>
       <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 2.5rem' }}>
-        <span className="badge badge-amber" style={{ marginBottom: '0.75rem' }}>
+        <span className="badge badge-bronze" style={{ marginBottom: '0.75rem' }}>
           Effort & Energy Comparison
         </span>
-        <h2 style={{ fontSize: '2rem', marginBottom: '0.75rem' }}>
+        <h2 style={{ fontSize: '1.9rem', marginBottom: '0.65rem' }}>
           The Burnout Way vs. The SlothOps Way
         </h2>
-        <p style={{ fontSize: '0.95rem', color: 'var(--text-secondary)' }}>
+        <p style={{ fontSize: '0.925rem', color: 'var(--text-secondary)' }}>
           See why channeling your inner sloth is the smartest productivity decision you'll make.
         </p>
       </div>
 
       <div className="glass-panel" style={{ padding: '0', overflowX: 'auto' }}>
-        <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.875rem' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.865rem' }}>
           <thead>
-            <tr style={{ borderBottom: '1px solid var(--border-subtle)', background: 'rgba(255, 255, 255, 0.03)' }}>
-              <th style={{ padding: '1.25rem 1.5rem', width: '25%', color: 'var(--text-muted)' }}>Daily Digital Chore</th>
-              <th style={{ padding: '1.25rem 1.5rem', width: '37.5%', color: '#f43f5e' }}>
+            <tr style={{ borderBottom: '1px solid var(--border-subtle)', background: 'rgba(255, 255, 255, 0.02)' }}>
+              <th style={{ padding: '1.15rem 1.4rem', width: '25%', color: 'var(--text-muted)' }}>Daily Digital Chore</th>
+              <th style={{ padding: '1.15rem 1.4rem', width: '37.5%', color: '#e29f99' }}>
                 <div className="flex items-center gap-2">
-                  <XCircle size={17} />
-                  <span>The Burnout Way (Manual & Stressful)</span>
+                  <XCircle size={16} />
+                  <span>Manual & Stressful</span>
                 </div>
               </th>
-              <th style={{ padding: '1.25rem 1.5rem', width: '37.5%', color: 'var(--accent-emerald)' }}>
+              <th style={{ padding: '1.15rem 1.4rem', width: '37.5%', color: '#b2c9bc' }}>
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 size={17} />
-                  <span>The SlothOps Way (Lie Back & Relax)</span>
+                  <CheckCircle2 size={16} />
+                  <span>SlothOps Autopilot</span>
                 </div>
               </th>
             </tr>
@@ -66,17 +66,17 @@ export function ManualVsSloth() {
           <tbody>
             {comparisons.map((item, idx) => (
               <tr key={idx} style={{
-                borderBottom: idx < comparisons.length - 1 ? '1px solid rgba(255, 255, 255, 0.05)' : 'none',
-                background: idx % 2 === 0 ? 'rgba(0, 0, 0, 0.2)' : 'transparent'
+                borderBottom: idx < comparisons.length - 1 ? '1px solid rgba(255, 255, 255, 0.04)' : 'none',
+                background: idx % 2 === 0 ? 'rgba(0, 0, 0, 0.15)' : 'transparent'
               }}>
-                <td style={{ padding: '1.2rem 1.5rem', fontWeight: 700, color: '#fff' }}>
+                <td style={{ padding: '1.15rem 1.4rem', fontWeight: 650, color: '#f3f4f6' }}>
                   {item.chore}
                 </td>
-                <td style={{ padding: '1.2rem 1.5rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
-                  <span style={{ color: '#fca5a5' }}>✗</span> {item.manual}
+                <td style={{ padding: '1.15rem 1.4rem', color: 'var(--text-secondary)', lineHeight: 1.55 }}>
+                  <span style={{ color: '#e29f99' }}>✗</span> {item.manual}
                 </td>
-                <td style={{ padding: '1.2rem 1.5rem', color: '#e2e8f0', lineHeight: 1.5 }}>
-                  <span style={{ color: 'var(--accent-emerald)', fontWeight: 700 }}>✓</span> {item.sloth}
+                <td style={{ padding: '1.15rem 1.4rem', color: '#e5e7eb', lineHeight: 1.55 }}>
+                  <span style={{ color: '#b2c9bc', fontWeight: 700 }}>✓</span> {item.sloth}
                 </td>
               </tr>
             ))}

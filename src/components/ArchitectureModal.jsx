@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Layers, Cpu, ShieldCheck, Zap, HardDrive, Radio, Activity, Globe } from 'lucide-react';
+import { X, Layers, Cpu, Activity, Globe, HardDrive } from 'lucide-react';
 
 export function ArchitectureModal({ isOpen, onClose }) {
   if (!isOpen) return null;
@@ -8,7 +8,7 @@ export function ArchitectureModal({ isOpen, onClose }) {
     {
       category: '1. Open-Weight AI Core',
       icon: Cpu,
-      color: 'emerald',
+      badgeClass: 'badge-sage',
       items: [
         { name: 'Google Gemma 2 (9B/2B)', role: 'Central reasoning, semantic parsing & chore planning', openSource: true },
         { name: 'Mastra DAG Framework', role: 'TypeScript agent execution, tool routing & schema validation', openSource: true },
@@ -17,7 +17,7 @@ export function ArchitectureModal({ isOpen, onClose }) {
     {
       category: '2. Specialized Tabular Foundation Model',
       icon: Activity,
-      color: 'amber',
+      badgeClass: 'badge-bronze',
       items: [
         { name: 'Prior Labs TabPFN-3.5', role: 'Zero-shot in-context tabular learning for financial anomaly detection & cash burn forecasting', openSource: true }
       ]
@@ -25,7 +25,7 @@ export function ArchitectureModal({ isOpen, onClose }) {
     {
       category: '3. Agent Tooling & Multimodal Interaction',
       icon: Globe,
-      color: 'indigo',
+      badgeClass: 'badge-neutral',
       items: [
         { name: 'Browserbase (Stagehand SDK)', role: 'Autonomous headless web research & deal verification', openSource: false },
         { name: 'ElevenLabs Voice API', role: 'Calm ambient narration & wind-down audio stream', openSource: false },
@@ -35,7 +35,7 @@ export function ArchitectureModal({ isOpen, onClose }) {
     {
       category: '4. Durability, Storage & Observability',
       icon: Layers,
-      color: 'purple',
+      badgeClass: 'badge-neutral',
       items: [
         { name: 'Temporal Workflows', role: 'State machine durability, step idempotency & exponential backoffs', openSource: true },
         { name: 'Tiger Data / MongoDB Atlas', role: 'PostgreSQL + pgvector long-term user memory & preference store', openSource: true },
@@ -45,7 +45,7 @@ export function ArchitectureModal({ isOpen, onClose }) {
     {
       category: '5. Hosting & Deployment Targets',
       icon: HardDrive,
-      color: 'rose',
+      badgeClass: 'badge-neutral',
       items: [
         { name: 'Render Web Services', role: '1-Click deployment via render.yaml blueprint', openSource: false },
         { name: 'DigitalOcean GPU Droplet', role: 'Docker containerized runner for local/cloud open-weight execution', openSource: false }
@@ -61,7 +61,7 @@ export function ArchitectureModal({ isOpen, onClose }) {
       right: 0,
       bottom: 0,
       backgroundColor: 'rgba(0, 0, 0, 0.85)',
-      backdropFilter: 'blur(8px)',
+      backdropFilter: 'blur(12px)',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -69,11 +69,11 @@ export function ArchitectureModal({ isOpen, onClose }) {
       padding: '1.5rem'
     }}>
       <div className="glass-panel" style={{
-        maxWidth: '850px',
+        maxWidth: '820px',
         width: '100%',
         maxHeight: '90vh',
         overflowY: 'auto',
-        padding: '2rem',
+        padding: '2.25rem',
         position: 'relative'
       }}>
         {/* Close Button */}
@@ -83,11 +83,11 @@ export function ArchitectureModal({ isOpen, onClose }) {
             position: 'absolute',
             top: '1.5rem',
             right: '1.5rem',
-            background: 'rgba(255, 255, 255, 0.08)',
-            border: 'none',
+            background: 'rgba(255, 255, 255, 0.06)',
+            border: '1px solid var(--border-subtle)',
             borderRadius: '50%',
-            width: '36px',
-            height: '36px',
+            width: '34px',
+            height: '34px',
             color: '#fff',
             display: 'flex',
             alignItems: 'center',
@@ -95,39 +95,39 @@ export function ArchitectureModal({ isOpen, onClose }) {
             cursor: 'pointer'
           }}
         >
-          <X size={18} />
+          <X size={16} />
         </button>
 
         {/* Modal Header */}
         <div style={{ marginBottom: '1.75rem' }}>
-          <div className="flex items-center gap-2" style={{ marginBottom: '0.25rem' }}>
-            <span className="badge badge-emerald">System Architecture Spec</span>
-            <span className="badge badge-indigo">Hacktoberfest Week 3</span>
+          <div className="flex items-center gap-2" style={{ marginBottom: '0.35rem' }}>
+            <span className="badge badge-neutral">System Architecture Spec</span>
+            <span className="badge badge-bronze">SlothOps Architecture</span>
           </div>
-          <h2 style={{ fontSize: '1.6rem' }}>SlothOps Partner Stack Blueprint</h2>
+          <h2 style={{ fontSize: '1.6rem', color: '#fff' }}>SlothOps Partner Stack Blueprint</h2>
           <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>
             Engineered around open-weight models, tabular foundation AI, and durable workflow execution.
           </p>
         </div>
 
         {/* Stack Groups */}
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-3.5">
           {stackComponents.map((group, gi) => {
             const GroupIcon = group.icon;
             return (
               <div key={gi} className="glass-card" style={{ padding: '1.25rem' }}>
-                <div className="flex items-center gap-2" style={{ marginBottom: '0.75rem', color: `var(--accent-${group.color})`, fontWeight: 700, fontSize: '0.95rem' }}>
-                  <GroupIcon size={18} />
+                <div className="flex items-center gap-2" style={{ marginBottom: '0.75rem', color: '#f3f4f6', fontWeight: 650, fontSize: '0.925rem' }}>
+                  <GroupIcon size={16} color="#d1d5db" />
                   <span>{group.category}</span>
                 </div>
                 <div className="flex flex-col gap-2">
                   {group.items.map((item, ii) => (
-                    <div key={ii} className="flex items-center justify-between" style={{ fontSize: '0.825rem', padding: '0.4rem 0', borderBottom: ii < group.items.length - 1 ? '1px solid var(--border-subtle)' : 'none' }}>
+                    <div key={ii} className="flex items-center justify-between" style={{ fontSize: '0.815rem', padding: '0.35rem 0', borderBottom: ii < group.items.length - 1 ? '1px solid var(--border-subtle)' : 'none' }}>
                       <div>
-                        <strong style={{ color: '#fff' }}>{item.name}</strong>
+                        <strong style={{ color: '#ffffff' }}>{item.name}</strong>
                         <span style={{ color: 'var(--text-secondary)', marginLeft: '0.5rem' }}>— {item.role}</span>
                       </div>
-                      <span className={`badge ${item.openSource ? 'badge-emerald' : 'badge-subtle'}`} style={{ fontSize: '0.65rem' }}>
+                      <span className={`badge ${item.openSource ? 'badge-sage' : 'badge-neutral'}`} style={{ fontSize: '0.625rem' }}>
                         {item.openSource ? 'Open Source' : 'Partner Stack'}
                       </span>
                     </div>
@@ -138,8 +138,8 @@ export function ArchitectureModal({ isOpen, onClose }) {
           })}
         </div>
 
-        <div style={{ marginTop: '1.5rem', textAlign: 'center' }}>
-          <button onClick={onClose} className="btn btn-primary" style={{ padding: '0.65rem 2rem' }}>
+        <div style={{ marginTop: '1.75rem', textAlign: 'center' }}>
+          <button onClick={onClose} className="btn btn-primary" style={{ padding: '0.65rem 2.2rem' }}>
             Close Architecture Spec
           </button>
         </div>
