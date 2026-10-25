@@ -2,12 +2,21 @@ import { Composition, Folder } from "remotion";
 import { HelloWorld } from "./HelloWorld";
 import { Logo } from "./HelloWorld/Logo";
 import { Title } from "./HelloWorld/Title";
-
-// Each <Composition> is an entry in the sidebar!
+import { SlothOpsDemo } from "./SlothOpsDemo/SlothOpsDemo";
 
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+      {/* Primary Prototype Demo Composition for Hacktoberfest 2026 */}
+      <Composition
+        id="SlothOpsDemo"
+        component={SlothOpsDemo}
+        durationInFrames={600}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+
       <Folder name="Elements">
         <Composition
           id="Logo"
@@ -33,24 +42,19 @@ export const RemotionRoot: React.FC = () => {
             titleColor: "#000000",
           }}
         />
+        <Composition
+          id="HelloWorld"
+          component={HelloWorld}
+          durationInFrames={150}
+          fps={30}
+          width={1920}
+          height={1080}
+          defaultProps={{
+            titleText: "SlothOps — Autonomous AI Chore Autopilot",
+            titleColor: "#ffffff",
+          }}
+        />
       </Folder>
-      <Composition
-        // You can take the "id" to render a video:
-        // bunx remotion render HelloWorld
-        id="HelloWorld"
-        component={HelloWorld}
-        durationInFrames={150}
-        fps={30}
-        width={1920}
-        height={1080}
-        // You can override these props for each render:
-        // https://www.remotion.dev/docs/parametrized-rendering
-        defaultProps={{
-          titleText: "SlothOps — Autonomous AI Chore Autopilot",
-          titleColor: "#ffffff",
-        }}
-      />
-
     </>
   );
 };

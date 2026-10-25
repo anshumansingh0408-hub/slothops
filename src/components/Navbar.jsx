@@ -1,7 +1,7 @@
 import React from 'react';
-import { Sparkles, Moon, Cpu, Layers, Activity } from 'lucide-react';
+import { Sparkles, Moon, Cpu, Layers, Activity, Film } from 'lucide-react';
 
-export function Navbar({ activeTab, setActiveTab, onOpenArchitecture }) {
+export function Navbar({ activeTab, setActiveTab, onOpenArchitecture, onOpenVideo }) {
   const tabs = [
     { id: 'autopilot', label: 'Chore Autopilot', icon: Sparkles },
     { id: 'tabpfn', label: 'TabPFN Financial Auditor', icon: Activity },
@@ -70,16 +70,26 @@ export function Navbar({ activeTab, setActiveTab, onOpenArchitecture }) {
         </nav>
 
         {/* System & Architecture Actions */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2.5">
           <div className="badge badge-neutral" title="Google Gemma 2 (9B Local Open-Weights)">
             <Cpu size={13} />
-            <span>Gemma 2 (9B Local)</span>
+            <span>Gemma 2</span>
           </div>
+
+          <button
+            onClick={onOpenVideo}
+            className="btn btn-secondary"
+            style={{ padding: '0.45rem 0.85rem', fontSize: '0.8rem', color: 'var(--accent-champagne)', borderColor: 'rgba(212, 163, 115, 0.35)' }}
+            title="Watch Remotion Demo Video"
+          >
+            <Film size={14} />
+            <span>Demo Video</span>
+          </button>
 
           <button
             onClick={onOpenArchitecture}
             className="btn btn-secondary"
-            style={{ padding: '0.45rem 0.95rem', fontSize: '0.8rem' }}
+            style={{ padding: '0.45rem 0.85rem', fontSize: '0.8rem' }}
             title="Inspect Partner Architecture"
           >
             <Layers size={14} />

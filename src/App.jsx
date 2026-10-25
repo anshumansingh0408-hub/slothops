@@ -8,11 +8,13 @@ import { ManualVsSloth } from './components/ManualVsSloth';
 import { TabPFNVisualizer } from './components/TabPFNVisualizer';
 import { AudioBriefingPlayer } from './components/AudioBriefingPlayer';
 import { ArchitectureModal } from './components/ArchitectureModal';
+import { VideoModal } from './components/VideoModal';
 import { Heart, Sparkles, Moon, ShieldCheck, Zap } from 'lucide-react';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('autopilot');
   const [isArchitectureModalOpen, setIsArchitectureModalOpen] = useState(false);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [isRunning, setIsRunning] = useState(false);
   const [activePresetName, setActivePresetName] = useState('');
   const [executionReport, setExecutionReport] = useState(null);
@@ -62,6 +64,7 @@ export default function App() {
           activeTab={activeTab}
           setActiveTab={setActiveTab}
           onOpenArchitecture={() => setIsArchitectureModalOpen(true)}
+          onOpenVideo={() => setIsVideoModalOpen(true)}
         />
 
         {/* Tab Content */}
@@ -117,6 +120,12 @@ export default function App() {
         <ArchitectureModal
           isOpen={isArchitectureModalOpen}
           onClose={() => setIsArchitectureModalOpen(false)}
+        />
+
+        {/* Remotion Demo Video Modal */}
+        <VideoModal
+          isOpen={isVideoModalOpen}
+          onClose={() => setIsVideoModalOpen(false)}
         />
 
         {/* Footer */}
