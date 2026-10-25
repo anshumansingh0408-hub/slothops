@@ -3,7 +3,7 @@ title: SlothOps: Channeling Your Inner Sloth with Open-Weight AI & TabPFN-3.5
 published: true
 tags: devchallenge, hf26challenge, ai, opensource
 cover_image: https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?q=80&w=1200&auto=format&fit=crop
-canonical_url: https://github.com/slothops/slothops
+canonical_url: https://github.com/anshumansingh0408-hub/slothops
 ---
 
 *This is a submission for the [Hacktoberfest Open-Source AI Challenge Week 3: Slow and Steady](https://dev.to/challenges/hacktoberfest-week3-2026-10-19)*
@@ -12,7 +12,7 @@ canonical_url: https://github.com/slothops/slothops
 **SlothOps** is an autonomous, privacy-first digital chore autopilot engineered specifically to celebrate **International Sloth Day** and reward human laziness.
 
 Sloths move at their own pace, conserve energy, and let the jungle come to them. Knowledge workers and software engineers, on the other hand, spend hours every week on mundane digital chores they dread:
-1. **The Desktop & Download Graveyard:** Cleaning messy screenshots, installation packages, and stray invoices scattered across \`Downloads/\`.
+1. **The Desktop & Download Graveyard:** Cleaning messy screenshots, installation packages, and stray invoices scattered across `Downloads/`.
 2. **Subscription Vampire Creep:** Manually opening banking CSVs or PDF statements to calculate whether SaaS tools and gym memberships stealthily increased by 20% or if idle cloud instances are racking up debt.
 3. **Information Fatigue:** Sifting through 100+ unread newsletters, Discord pings, and GitHub notifications every morning.
 4. **Context Switching:** Opening 20 browser tabs just to verify documentation updates or check flight prices.
@@ -27,7 +27,7 @@ Sloths move at their own pace, conserve energy, and let the jungle come to them.
 
 ## Demo
 - **Live Interactive Web App:** Hosted on Render with full dark-mode glassmorphism and real-time Sentry telemetry.
-- **GitHub Repository:** [github.com/slothops/slothops](https://github.com/slothops/slothops)
+- **GitHub Repository:** [github.com/anshumansingh0408-hub/slothops](https://github.com/anshumansingh0408-hub/slothops)
 - **Air-Gapped Offline Mode:** Operates 100% offline using local Gemma 2 inference and in-context TabPFN forward-passes.
 
 ---
@@ -105,9 +105,9 @@ Why did building on open-weights and open-source AI fundamentally outperform clo
 ---
 
 ## My Agent Session
-I developed and refined SlothOps collaboratively with an autonomous AI coding assistant. You can view the complete session transcript here:
+I developed and refined SlothOps collaboratively with an autonomous AI coding assistant. The agent assisted in scaffolding the Mastra DAG architecture, implementing TabPFN zero-shot tabular evaluation, styling the luxury glassmorphism UI, and rendering the custom Remotion demo video.
 
-{% agent_session a50eaab8-4a5e-4c00-b16e-8887a657549f %}
+All code, architectural blueprints, and workflows are committed and open-sourced on GitHub: [github.com/anshumansingh0408-hub/slothops](https://github.com/anshumansingh0408-hub/slothops)
 
 ---
 
