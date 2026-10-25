@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  slothops:
+    build: .
+    ports:
+      - "3001:3001"
+    environment:
+      - PORT=3001
+      - NODE_ENV=production
+      - GEMMA_RUNTIME=local-simulation
+      - GEMMA_MODEL_NAME=google/gemma-2-9b-it
+      - TABPFN_MODE=hybrid
+    restart: unless-stopped

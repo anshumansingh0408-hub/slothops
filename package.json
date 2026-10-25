@@ -1,0 +1,47 @@
+{
+  "name": "slothops",
+  "version": "1.0.0",
+  "description": "SlothOps: Autonomous Chore Elimination Powered by Google Gemma, Mastra Orchestration, TabPFN-3.5, and Temporal Workflows",
+  "main": "server/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "node server/index.js",
+    "client": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "node server/index.js",
+    "test:agent": "node server/test_agent.js"
+  },
+  "keywords": [
+    "hacktoberfest",
+    "hacktoberfest2026",
+    "open-weight",
+    "google-gemma",
+    "mastra",
+    "tabpfn",
+    "temporal",
+    "browserbase",
+    "stagehand",
+    "sentry",
+    "render",
+    "digitalocean",
+    "ai-agent",
+    "sloth-day"
+  ],
+  "author": "SlothOps Team",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "lucide-react": "^0.460.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.3",
+    "concurrently": "^9.1.0",
+    "vite": "^5.4.10"
+  }
+}

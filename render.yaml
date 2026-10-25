@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: slothops-agent
+    env: node
+    plan: starter
+    region: oregon
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: GEMMA_RUNTIME
+        value: local-simulation
+      - key: GEMMA_MODEL_NAME
+        value: google/gemma-2-9b-it
+      - key: TABPFN_MODE
+        value: hybrid
+      - key: SENTRY_TRACES_SAMPLE_RATE
+        value: "1.0"
