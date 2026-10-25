@@ -11,7 +11,9 @@
     "build": "vite build",
     "preview": "vite preview",
     "start": "node server/index.js",
-    "test:agent": "node server/test_agent.js"
+    "test:agent": "node server/test_agent.js",
+    "video:dev": "npm --prefix video run dev",
+    "video:render": "npm --prefix video run build"
   },
   "keywords": [
     "hacktoberfest",
